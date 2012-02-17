@@ -19,7 +19,7 @@ Add this to your `Gemfile`
 
 ## Templates directory
 
-You should located your templates under `app/assets`; we suggest `app/assets/templates`. In your Javascript manifest file (for example `application.js`), use `require_tree`
+You should locate your templates under `app/assets`; we suggest `app/assets/templates`. In your Javascript manifest file (for example `application.js`), use `require_tree`
 
     //= require_tree ../templates
 
