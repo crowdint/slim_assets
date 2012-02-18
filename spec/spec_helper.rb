@@ -8,6 +8,8 @@ require 'ejs'
 require 'rspec/rails'
 require 'active_record'
 
+Rails.cache.clear
+
 ActiveRecord::Base.
   establish_connection(adapter: "sqlite3", database: ":memory:")
 

@@ -41,7 +41,7 @@ module SlimAssets
     def prepare; end
 
     def render_slim(context, locals)
-      Slim::Template.new {|t| data }.render(context)
+      Slim::Template.new(generator: Temple::Generators::RailsOutputBuffer) {|t| data }.render(context)
     end
 
     # The Sprockets context is shared among all the processors, give Slim its
