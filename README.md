@@ -2,6 +2,8 @@
 
 *ALPHA*
 
+[![Build Status](https://secure.travis-ci.org/crowdint/slim_assets.png)](http://travis-ci.org/crowdint/slim_assets)
+
 Writing Javascript templates for Backbone.js (or other frameworks) in your app? Would you like to use slim and the asset pipeline?
 
 This gem adds slim templating support to the Rails 3.1 asset pipeline. This gem works with the EJS gem and JST asset engine to make your slim available as a compiled Javascript template.
