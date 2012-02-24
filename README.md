@@ -18,7 +18,6 @@ Add this to your `Gemfile`
 
 # Using slim for your Javascript templates
 
-
 ## Templates directory
 
 You should locate your templates under `app/assets`; we suggest `app/assets/templates`. In your Javascript manifest file (for example `application.js`), use `require_tree`
