@@ -12,10 +12,15 @@ module SlimAssets
 
       def self.included(klass)
         klass.instance_eval do
+          include ActiveSupport::Configurable
           include Rails.application.routes.url_helpers
           include Rails.application.routes.mounted_helpers
           include ActionView::Helpers
           include SimpleForm::ActionViewExtensions::FormHelper if defined?(SimpleForm)
+          include ActionController::Helpers
+
+          self.helpers_path = Rails.application.config.helpers_paths
+          modules_for_helpers([:all]).each {|m| include m }
         end
       end
 
