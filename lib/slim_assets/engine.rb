@@ -1,9 +1,18 @@
 module SlimAssets
   class Engine < ::Rails::Engine
-    initializer "sprockets.slim", :after => "sprockets.environment", :group => :all do |app|
-      next unless app.assets
+    initializer 'slim_assets.assets.register', :group => :all do |app|
+      app.config.assets.configure do |sprockets_env|
+        if sprockets_env.respond_to?(:register_transformer)
+          sprockets_env.register_mime_type 'application/vnd.slim-template.slim+text', extensions: ['.slim']
+          sprockets_env.register_transformer 'application/vnd.slim-template.slim+text', 'application/javascript', SlimSprocketsEngine
+        end
 
-      app.assets.register_engine('.slim', SlimSprocketsEngine)
+        if sprockets_env.respond_to?(:register_engine)
+          args = ['.slim', SlimSprocketsEngine]
+          args << { silence_deprecation: true } if Sprockets::VERSION.start_with?('3')
+          sprockets_env.register_engine(*args)
+        end
+      end
     end
   end
 end
